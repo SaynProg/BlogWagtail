@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+
+   <!--  {{ page.body|richtext }} -->
+
+    <!-- {% image page.home_image fill-720x360 as homeimage %}
+    <a href="{{ homeimage.url }}">Зображення</a> -->
+
+    <div>
+        {% include_block page.bodystream %}
+    </div>
+
+{% endblock %}

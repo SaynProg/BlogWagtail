@@ -1,0 +1,30 @@
+header {
+	float:top;
+	height: 10vh;
+	background-color: #000; 
+	padding: 1vh 0 0 1vh;
+	color:#fff;
+}
+
+footer {
+	float:bottom;
+	height: 15vh;
+	background-color: #000; 
+	padding: 2vh 0 0 4vh;
+	color:#fff;
+}
+
+header a {
+	color:#fff;
+	text-decoration: none;
+	font-size: 25px;
+	padding: 0 2vh;
+}
+header a:hover{
+	color:#fff;
+	text-decoration: none;
+}
+
+main {
+	padding: 2vh;
+}

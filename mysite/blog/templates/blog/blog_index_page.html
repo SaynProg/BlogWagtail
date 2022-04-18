@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block content %}
+
+    <!-- <div class="intro">{{ page.intro|richtext }}</div> -->
+
+    {% for post in page.get_children %}
+        <div class="col-4 mb-5 mx-auto">
+            <div class="card h-100">
+
+                {% image post.specific.introimage fill-515x200 %}
+
+                <!-- Item details-->
+                <div class="card-body p-4">
+                    <div class="text-center">
+                        <!-- Item name-->
+                        <h5 class="fw-bolder">{{ post.title }}</h5>
+                        <!-- Item descriptions-->
+                        <h6>{{ post.specific.intro }}</h6>
+                    </div>
+                </div>
+
+                <!-- Item actions-->
+                <div class="card-footer pt-0 border-top-0 bg-transparent">
+                    <div class="text-center"><a href="{% pageurl post %}" class="btn btn-primary">Перейти</a></div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
