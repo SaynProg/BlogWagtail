@@ -10,13 +10,13 @@
     <!-- <div class="intro">{{ page.intro|richtext }}</div> -->
 
     {% for post in page.get_children %}
-        <div class="col-4 mb-5 mx-auto">
+        <div class="mb-5 mx-auto" style="max-width:720px;"> 
             <div class="card h-100">
-
-                {% image post.specific.introimage fill-515x200 %}
+                {% image post.specific.introimage fill-720x280 as imgpageview %}
+                <img style="max-width: 720px;" src="{{ imgpageview.url }}" alt="Зображення не знайдено!">
 
                 <!-- Item details-->
-                <div class="card-body p-4">
+                <div class="card-body p-4" style="font-family: 'Open Sans', sans-serif;">
                     <div class="text-center">
                         <!-- Item name-->
                         <h5 class="fw-bolder">{{ post.title }}</h5>

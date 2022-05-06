@@ -1,3 +1,4 @@
 {% load wagtailimages_tags %}
 
-{% image self fill-720x360 %}
+{% image self fill-720x360 as imgpageview %}
+<img style="max-width:70vw;" src="{{ imgpageview.url }}" alt="Зображення не знайдено!">

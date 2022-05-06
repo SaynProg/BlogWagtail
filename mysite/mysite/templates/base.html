@@ -14,22 +14,65 @@
                 {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
             {% endblock %}
         </title>
-        <meta name="description" content="" />
+        <meta name="description" content="Сайт, розроблений Сайяном. Лютельстка, не комерцерційна розробка. Блог." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow">
+        <meta name="keywords" content="сайт саяна, блог мар'яна, блог, робота з сайтом саян, розвток програміста саян">
 
         {# Global stylesheets #}
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
-
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
         {% block extra_css %}
-            {# Override this in templates to add extra stylesheets #}
+            <style>
+                header {
+                    font-family: 'Open Sans', sans-serif;
+                    float:top;
+                    max-height: 10vh;
+                    background-color: #000; 
+                    padding: 2vh 0;
+                    color:#fff;
+                }
+
+                footer {
+                    float:bottom;
+                    max-height: 15vh;
+                    background-color: #000; 
+                    padding: 2vh 0 5vh 4vh;
+                    color:#fff;
+                }
+
+                header a {
+                    color:#fff;
+                    text-decoration: none;
+                    font-size: 25px;
+                    padding: 0 2vh;
+                }
+                header a:hover{
+                    color:#fff;
+                    text-decoration: none;
+                }
+
+                main {
+                    padding: 2vh;
+                }
+                
+                @media (max-width:992px){
+                    div.card.mx-auto{
+                        max-width:750px;
+                        font-size:16px;
+                    }
+                }
+            </style>
         {% endblock %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        <header>
+        <header> 
             <a href="{% slugurl 'home' %}">Домашня сторінка</a>
             <a href="{% slugurl 'blog' %}">Блог</a>
         </header><br>
@@ -44,8 +87,8 @@
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
         {% endblock %}
+        
+        {% footer_tag %}   
     </body>
-
-    {% footer_tag %}
 
 </html>

@@ -20,7 +20,6 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -149,10 +148,11 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesSto
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+#STATIC_ROOT = '/home/saynsite/BlogWagtail/mysite/static'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
+#MEDIA_ROOT = '/home/saynsite/BlogWagtail/mysite/media'
 
 # Wagtail settings
 
@@ -168,7 +168,7 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://example.com'
+BASE_URL = 'http://saynsite.pythonanywhere.com/'
 
 # Провірка обновлень та відображення попереджень
 WAGTAIL_ENABLE_UPDATE_CHECK = False

@@ -7,19 +7,24 @@
 
 {% block content %}
 
-    <div class="card h-100 col-9 mx-auto" style="padding:2vh;font-size: 22px;">
-        <h1>{{ page.title }}</h1><br>
+    <div class="card mx-auto" style="padding:4vh;font-size: 20px;max-width:1330px;">
+        <div style="font-family: 'Open Sans', sasn-serif;" >
+            <h1>{{ page.title }}</h1><br>
 
-        {% for item in page.gallery_images.all %}
-            <div style="margin: 10px">
-                {% image item.image fill-720x360 %}
-                <p style="color:gray;">{{ item.caption }}</p>
+            {% for item in page.gallery_images.all %}
+                <div style="margin: 10px">
+                    {% image item.image fill-720x360 as imgpageview %}
+                    <img style="max-width: 70vw;" src="{{ imgpageview.url }}" alt="Зображення не знайдено!">
+                    <p style="color:gray;">{{ item.caption }}</p>
+                </div>
+            {% endfor %}
+            
+            <div style="max-width:70vw;">
+                {% include_block page.bodystream %}
             </div>
-        {% endfor %}
 
-        {% include_block page.bodystream %}
-
-        <p class="meta">{{ page.date }}</p>
+            <p class="meta">{{ page.date }}</p>
+        </div>
 
         <br>
         <p style="font-size: 20px;"><a href="{{ page.get_parent.url }}" class="btn btn-primary">Повернутися назад</a></p>
