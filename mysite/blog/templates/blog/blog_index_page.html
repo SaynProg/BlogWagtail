@@ -3,6 +3,8 @@
 {% load wagtailcore_tags %}
 {% load wagtailimages_tags %}
 
+{% block title %}Блог Мар'яна{% endblock %}
+
 {% block body_class %}template-blogindexpage{% endblock %}
 
 {% block content %}
@@ -10,10 +12,10 @@
     <!-- <div class="intro">{{ page.intro|richtext }}</div> -->
 
     {% for post in page.get_children %}
-        <div class="mb-5 mx-auto" style="max-width:720px;"> 
-            <div class="card h-100">
+        <div class="mb-5 mx-auto" style="max-width:720px;border: 1px solid lightgray;border-radius: 5px;"> 
+            <div class="h-100">
                 {% image post.specific.introimage fill-720x280 as imgpageview %}
-                <img style="max-width: 720px;" src="{{ imgpageview.url }}" alt="Зображення не знайдено!">
+                <img class="img-fluid" style='min-width:100%;' src="{{ imgpageview.url }}">
 
                 <!-- Item details-->
                 <div class="card-body p-4" style="font-family: 'Open Sans', sans-serif;">

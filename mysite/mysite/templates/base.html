@@ -14,7 +14,7 @@
                 {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
             {% endblock %}
         </title>
-        <meta name="description" content="Сайт, розроблений Сайяном. Лютельстка, не комерцерційна розробка. Блог." />
+        <meta name="description" content="Сайт, розроблений Сайяном. Любительська, не комерцерційна розробка. Блог." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow">
         <meta name="keywords" content="сайт саяна, блог мар'яна, блог, робота з сайтом саян, розвток програміста саян">
@@ -27,30 +27,26 @@
         <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
         {% block extra_css %}
             <style>
-                header {
+                .header {
                     font-family: 'Open Sans', sans-serif;
                     float:top;
-                    max-height: 10vh;
-                    background-color: #000; 
-                    padding: 2vh 0;
+                    max-height: 10vh; 
                     color:#fff;
                 }
 
                 footer {
-                    float:bottom;
-                    max-height: 15vh;
                     background-color: #000; 
-                    padding: 2vh 0 5vh 4vh;
+                    padding: 2vh 0 0 4vh;
                     color:#fff;
                 }
 
-                header a {
+                .header a {
                     color:#fff;
                     text-decoration: none;
                     font-size: 25px;
                     padding: 0 2vh;
                 }
-                header a:hover{
+                .header a:hover{
                     color:#fff;
                     text-decoration: none;
                 }
@@ -72,16 +68,29 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
-        <header> 
-            <a href="{% slugurl 'home' %}">Домашня сторінка</a>
-            <a href="{% slugurl 'blog' %}">Блог</a>
-        </header><br>
+        <div class='header'> 
+            <div class="collapse" id="navbarToggleExternalContent">
+              <div class="bg-dark p-4">
+                <span class="text-white h4"><a href="{% slugurl 'home' %}">Домашня сторінка</a></span>
+                <span class="text-white h4"><a href="{% slugurl 'blog' %}">Блог</a></span>
+              </div>
+            </div>
+            <nav class="navbar navbar-dark bg-dark">
+              <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </div>
+            </nav>
+        </div><br>
 
         <main>
             {% block content %}{% endblock %}
         </main>
 
         {# Global javascript #}
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
         <script type="text/javascript" src="{% static 'js/mysite.js' %}"></script>
 
         {% block extra_js %}
