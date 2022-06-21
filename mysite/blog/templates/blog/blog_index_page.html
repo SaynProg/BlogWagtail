@@ -11,8 +11,8 @@
 
     <!-- <div class="intro">{{ page.intro|richtext }}</div> -->
 
-    {% for post in page.get_children %}
-        <div class="mb-5 mx-auto" style="max-width:720px;border: 1px solid lightgray;border-radius: 5px;overflow:hidden;"> 
+    {% for post in posts %}
+        <div class="mb-5 mx-auto" style="max-width:720px;box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);"> 
             <div class="h-100">
                 {% image post.specific.introimage fill-720x280 as imgpageview %}
                 <img class="img-fluid" style='min-width:100%;' src="{{ imgpageview.url }}">

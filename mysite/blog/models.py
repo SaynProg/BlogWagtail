@@ -19,6 +19,12 @@ class BlogIndexPage(Page):
     content_panels = Page.content_panels + [
         FieldPanel('intro', classname="full")
     ]
+    def get_context(self, request, *args, **kwargs):
+        context = super().get_context(request, *args, **kwargs)
+        
+        all_posts = BlogPage.objects.live().public().order_by('-first_published_at')
+        context["posts"] = all_posts
+        return context
 
 class BlogPage(Page):
 
